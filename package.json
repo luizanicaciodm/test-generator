@@ -1,0 +1,16 @@
+{
+  "name": "qa-us",
+  "version": "1.0.0",
+  "description": "Ferramenta de análise QA para User Stories com Google Gemini.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Luiza Nicácio",
+  "license": "MIT",
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
