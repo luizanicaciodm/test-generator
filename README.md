@@ -1,4 +1,4 @@
-# 🔍 QA US — Análise de User Stories com IA
+# 🔍 Análise de User Stories com IA
 
 <div align="center">
 
@@ -21,7 +21,7 @@
 
 O **TESTE GENERATOR** é uma ferramenta web que usa inteligência artificial (Google Gemini) para gerar análises de qualidade profundas a partir de **User Stories** e **Critérios de Aceite**.
 
-Em vez de montar os casos de teste manualmente do zero, você cola a US, cola os critérios e recebe em segundos uma análise estruturada como um QA Sênior real entregaria: com casos de teste, mapeamento de cobertura, riscos, pontos críticos e recomendações estratégicas — tudo exportável em PDF com identidade visual profissional.
+Em vez de montar os casos de teste manualmente do zero, você cola a US, cola os critérios e recebe em segundos uma análise estruturada como um QA real entregaria: com casos de teste, mapeamento de cobertura, riscos, pontos críticos e recomendações estratégicas, tudo exportável em PDF com identidade visual profissional.
 
 > Desenvolvido por **Luiza Nicácio** — Analista de Teste.
 
@@ -137,16 +137,11 @@ qa-us/
 
 ## 👩‍💻 Sobre a autora
 
-<table>
-  <tr>
-    <td>
-      <strong>Luiza Nicácio</strong><br>
-      Analista de Teste.<br><br>
-      
-      <a href="https://www.linkedin.com/in/luizanicacio">LinkedIn</a>
-    </td>
-  </tr>
-</table>
+**Luiza Nicácio**  
+Analista de Teste  
+
+[LinkedIn](https://www.linkedin.com/in/luizanicacio)
+
 
 ---
 
