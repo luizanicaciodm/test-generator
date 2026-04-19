@@ -141,9 +141,11 @@ qa-us/
   <tr>
     <td>
       <strong>Luiza Nicácio</strong><br>
-      Analista de Teste.<br><br>
+      Analista de Teste<br><br>
 
-      <a href="https://www.linkedin.com/in/luizanicacio">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/luizanicacio" target="_blank">
+        LinkedIn
+      </a>
     </td>
   </tr>
 </table>
