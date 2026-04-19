@@ -1,4 +1,4 @@
-# 🔍 QA US — Análise de User Stories com IA
+# 🔍 QA US - Análise de User Stories com IA
 
 <div align="center">
 
