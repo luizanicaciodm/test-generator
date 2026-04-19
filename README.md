@@ -137,18 +137,10 @@ qa-us/
 
 ## 👩‍💻 Sobre a autora
 
-<table>
-  <tr>
-    <td>
-      <strong>Luiza Nicácio</strong><br>
-      Analista de Teste<br><br>
+**Luiza Nicácio**  
+Analista de Teste  
 
-      <a href="https://www.linkedin.com/in/luizanicacio" target="_blank">
-        LinkedIn
-      </a>
-    </td>
-  </tr>
-</table>
+[LinkedIn](https://www.linkedin.com/in/luizanicacio)
 
 
 ---
