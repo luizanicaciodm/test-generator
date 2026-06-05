@@ -6,6 +6,11 @@ const app = express();
 app.use(express.json());
 app.use(express.static('public'));
 
+if (!process.env.GEMINI_API_KEY) {
+  console.error('❌ GEMINI_API_KEY não encontrada no .env');
+  process.exit(1);
+}
+
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 app.post('/generate', async (req, res) => {
@@ -16,7 +21,7 @@ app.post('/generate', async (req, res) => {
   }
 
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
 
     const prompt = `Você é um QA Sênior com mais de 10 anos de experiência em projetos críticos de software. Sua missão é analisar a User Story e os Critérios de Aceite fornecidos e produzir uma análise de qualidade profunda, detalhada e prática — como um QA Sênior real entregaria para o time.
 
@@ -100,12 +105,13 @@ Escreva insights estratégicos: pontos cegos nos critérios de aceite, sugestõe
 
 ---
 
-Responda em português brasileiro. Seja técnico, específico e direto. Não use linguagem genérica.`;
+Responda em português brasileiro. Seja técnico, específico e direto. Não use linguagem genérica. Não escreva nenhuma frase introdutória antes de começar a análise — vá direto para a primeira seção.`;
 
     const result = await model.generateContent(prompt);
     const analysis = result.response.text();
 
     res.json({ analysis });
+
   } catch (error) {
     console.error('Erro na API do Gemini:', error);
     if (error.message && error.message.includes('API_KEY')) {
@@ -118,7 +124,7 @@ Responda em português brasileiro. Seja técnico, específico e direto. Não use
   }
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`\n🚀 QA US rodando em: http://localhost:${PORT}`);
   console.log('📋 Abra o link acima no seu navegador para usar a ferramenta.\n');
