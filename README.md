@@ -38,7 +38,7 @@ Para cada análise, a ferramenta entrega **6 seções completas**:
 | 3 | ⚠️ **Pontos Críticos** | Lista ordenada por criticidade com impacto de cada ponto se não tratado |
 | 4 | 🔥 **Riscos e o que pode dar errado** | Impacto, probabilidade, área e sugestão de mitigação para cada risco |
 | 5 | 📊 **Mapeamento de Cobertura** | Cada Critério de Aceite mapeado para seus casos de teste, com status de cobertura |
-| 6 | 💡 **Recomendações do QA Sênior** | Insights estratégicos, automação recomendada e testes complementares |
+| 6 | 💡 **Recomendações do QA** | Insights estratégicos, automação recomendada e testes complementares |
 
 ---
 
