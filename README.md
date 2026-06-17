@@ -137,9 +137,9 @@ qa-us/
 
 ## Resultado Gerado
 
-Exemplo de User Story gerada pela ferramenta:
+📄 Exemplo de saída gerada pela aplicação:
 
-- 📄 Arquivo HTML de exemplo: [qa_us_resultado.html](./qa_us_resultado.html)
+[Visualizar exemplo de resultado](./public/qa_us_resultado.html)
 
 ### Funcionalidades
 
