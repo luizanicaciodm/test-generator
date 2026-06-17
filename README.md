@@ -135,7 +135,7 @@ qa-us/
 
 ---
 
-## Resultado Gerado
+## ✅ Resultado Gerado
 
 📄 Exemplo de saída gerada pela aplicação:
 
