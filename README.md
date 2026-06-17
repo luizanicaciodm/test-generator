@@ -135,6 +135,21 @@ qa-us/
 
 ---
 
+## Resultado Gerado
+
+Exemplo de User Story gerada pela ferramenta:
+
+- 📄 Arquivo HTML de exemplo: [qa_us_resultado.html](./qa_us_resultado.html)
+
+### Funcionalidades
+
+- Geração automática de User Stories
+- Critérios de aceitação estruturados
+- Exportação para HTML
+- Interface simples para uso por Product Owners e QAs
+
+---
+
 ## 👩‍💻 Sobre a autora
 
 **Luiza Nicácio**  

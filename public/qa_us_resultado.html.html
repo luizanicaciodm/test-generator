@@ -1,0 +1,133 @@
+
+<style>
+  .qa-wrap { font-family: 'Segoe UI', system-ui, sans-serif; background: #0a0f1e; border-radius: 12px; overflow: hidden; }
+  .qa-header { background: linear-gradient(135deg, #1e3a8a, #1d4ed8); padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
+  .qa-header-title { font-size: 1.15rem; font-weight: 700; color: #fff; }
+  .qa-header-sub { font-size: 0.78rem; color: rgba(255,255,255,0.75); margin-top: 2px; }
+  .qa-body { padding: 20px; }
+  .qa-form { background: #111827; border: 1px solid #2d3748; border-radius: 10px; padding: 20px; margin-bottom: 16px; }
+  .qa-form-label { font-size: 0.7rem; font-weight: 600; color: #8896aa; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 6px; }
+  .qa-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .qa-textarea { background: #1f2937; border: 1.5px solid #2d3748; border-radius: 6px; color: #e8e8f0; font-size: 0.78rem; padding: 10px; min-height: 90px; font-family: inherit; line-height: 1.5; }
+  .qa-btn { margin-top: 14px; background: linear-gradient(135deg, #1d4ed8, #f59e0b); color: white; border: none; border-radius: 7px; padding: 10px 22px; font-size: 0.85rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+  .qa-result-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+  .qa-result-title { font-size: 0.9rem; color: #f59e0b; font-weight: 600; }
+  .qa-btn-pdf { background: #f59e0b; color: #0a0f1e; border: none; border-radius: 6px; padding: 7px 16px; font-size: 0.78rem; font-weight: 700; cursor: pointer; }
+  .qa-content { background: #111827; border: 1px solid #2d3748; border-radius: 10px; padding: 22px; color: #e8e8f0; }
+  .qa-section-h { font-size: 0.98rem; font-weight: 700; color: white; background: #1d4ed8; border-left: 4px solid #f59e0b; padding: 7px 12px; border-radius: 0 5px 5px 0; margin: 16px 0 10px; }
+  .qa-section-h:first-child { margin-top: 0; }
+  .qa-sub { font-size: 0.82rem; font-weight: 700; color: #f59e0b; margin: 10px 0 6px; }
+  .qa-p { font-size: 0.79rem; color: #c8ccd8; line-height: 1.6; margin-bottom: 8px; }
+  .qa-table { width: 100%; border-collapse: collapse; font-size: 0.75rem; margin: 8px 0; }
+  .qa-table th { background: #1d4ed8; color: #fff; padding: 7px 10px; text-align: left; font-weight: 600; border: 1px solid #1d4ed8; }
+  .qa-table td { padding: 6px 10px; border: 1px solid #2d3748; color: #c8ccd8; vertical-align: top; line-height: 1.45; }
+  .qa-table tr:nth-child(even) td { background: rgba(255,255,255,0.03); }
+  .qa-badge { display: inline-block; border-radius: 4px; padding: 1px 7px; font-size: 0.68rem; font-weight: 700; }
+  .badge-p { background: rgba(229,62,62,0.15); color: #fc8181; border: 1px solid rgba(229,62,62,0.3); }
+  .badge-m { background: rgba(245,158,11,0.15); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
+  .badge-b { background: rgba(52,211,153,0.13); color: #6ee7b7; border: 1px solid rgba(52,211,153,0.3); }
+  .qa-list { padding-left: 18px; margin: 0 0 8px; }
+  .qa-list li { font-size: 0.79rem; color: #c8ccd8; line-height: 1.6; margin-bottom: 3px; }
+  .qa-hr { border: none; border-top: 1px solid #2d3748; margin: 14px 0; }
+</style>
+
+<div class="qa-wrap">
+  <div class="qa-header">
+    <div style="font-size:1.6rem">🔍</div>
+    <div>
+      <div class="qa-header-title">QA US</div>
+      <div class="qa-header-sub">Análise de User Stories com IA — cole, gere, exporte em PDF</div>
+    </div>
+  </div>
+
+  <div class="qa-body">
+    <div class="qa-form">
+      <div style="font-size:0.82rem;color:#f59e0b;font-weight:600;margin-bottom:14px;">⚙️ Entrada de Dados</div>
+      <div class="qa-fields">
+        <div>
+          <div class="qa-form-label">User Story <span style="color:#e53e3e">*</span></div>
+          <div class="qa-textarea">Como usuário cadastrado,<br>Quero fazer login com meu e-mail e senha,<br>Para acessar minha conta na plataforma.</div>
+        </div>
+        <div>
+          <div class="qa-form-label">Critérios de Aceite <span style="color:#e53e3e">*</span></div>
+          <div class="qa-textarea">- E-mail deve estar no formato correto<br>- Senha com no mínimo 8 caracteres<br>- Bloquear conta após 3 tentativas erradas<br>- Exibir mensagem de erro clara</div>
+        </div>
+      </div>
+      <button class="qa-btn">✨ Gerar Análise QA</button>
+    </div>
+
+    <div class="qa-result-bar">
+      <div class="qa-result-title">📄 Análise Gerada</div>
+      <button class="qa-btn-pdf">🖨️ Salvar como PDF</button>
+    </div>
+
+    <div class="qa-content">
+
+      <div class="qa-section-h">📋 Entendimento da User Story</div>
+      <div class="qa-p"><strong style="color:#93c5fd">Contexto de negócio:</strong> Funcionalidade de autenticação para usuários com cadastro prévio na plataforma. Fluxo crítico que impacta diretamente a experiência do usuário e a segurança da aplicação.</div>
+      <div class="qa-p"><strong style="color:#93c5fd">Lacunas identificadas:</strong> Não especifica comportamento após desbloqueio da conta, nem o canal de comunicação do bloqueio ao usuário.</div>
+
+      <div class="qa-section-h">✅ Casos de Teste Completos</div>
+      <div class="qa-sub">Happy Path</div>
+      <table class="qa-table">
+        <thead><tr><th>ID</th><th>Cenário</th><th>Resultado Esperado</th><th>Prioridade</th></tr></thead>
+        <tbody>
+          <tr><td>CT-001</td><td>Login com credenciais válidas</td><td>Redirecionamento para dashboard</td><td><span class="qa-badge badge-p">Alta</span></td></tr>
+          <tr><td>CT-002</td><td>Manter sessão após login bem-sucedido</td><td>Sessão persistida conforme configuração</td><td><span class="qa-badge badge-m">Média</span></td></tr>
+        </tbody>
+      </table>
+      <div class="qa-sub">Negativos / Edge Cases</div>
+      <table class="qa-table">
+        <thead><tr><th>ID</th><th>Cenário</th><th>Resultado Esperado</th><th>Prioridade</th></tr></thead>
+        <tbody>
+          <tr><td>CT-003</td><td>E-mail sem @ no campo</td><td>Mensagem de validação de formato</td><td><span class="qa-badge badge-p">Alta</span></td></tr>
+          <tr><td>CT-004</td><td>Senha com 7 caracteres</td><td>Erro: mínimo 8 caracteres</td><td><span class="qa-badge badge-p">Alta</span></td></tr>
+          <tr><td>CT-005</td><td>3ª tentativa com credencial errada</td><td>Conta bloqueada por 15 minutos</td><td><span class="qa-badge badge-p">Alta</span></td></tr>
+          <tr><td>CT-006</td><td>Campos em branco ao submeter</td><td>Validação de campos obrigatórios</td><td><span class="qa-badge badge-m">Média</span></td></tr>
+          <tr><td>CT-007</td><td>SQL Injection no campo e-mail</td><td>Input sanitizado, sem erro 500</td><td><span class="qa-badge badge-p">Alta</span></td></tr>
+          <tr><td>CT-008</td><td>Login com conta já bloqueada</td><td>Mensagem informando tempo restante</td><td><span class="qa-badge badge-b">Baixa</span></td></tr>
+        </tbody>
+      </table>
+
+      <div class="qa-hr"></div>
+
+      <div class="qa-section-h">⚠️ Pontos Críticos</div>
+      <ul class="qa-list">
+        <li><strong style="color:#fc8181">[CRÍTICO]</strong> Lógica de bloqueio de conta — falha pode permitir ataques de força bruta</li>
+        <li><strong style="color:#f59e0b">[ALTO]</strong> Validação de formato de e-mail deve ocorrer no front e no back</li>
+        <li><strong style="color:#f59e0b">[ALTO]</strong> Mensagem de erro genérica — não deve revelar qual campo está errado</li>
+        <li><strong style="color:#6ee7b7">[MÉDIO]</strong> Comportamento do timer de 15 min em múltiplas abas</li>
+      </ul>
+
+      <div class="qa-section-h">🔥 Riscos e o que pode dar errado</div>
+      <table class="qa-table">
+        <thead><tr><th>Risco</th><th>Impacto</th><th>Probabilidade</th><th>Mitigação</th></tr></thead>
+        <tbody>
+          <tr><td>Contador de tentativas não persistido</td><td>Alto</td><td>Média</td><td>Armazenar no servidor, não no cliente</td></tr>
+          <tr><td>Bloqueio não aplicado em múltiplos devices</td><td>Alto</td><td>Baixa</td><td>Bloqueio vinculado ao e-mail, não à sessão</td></tr>
+          <tr><td>Exposição de stack trace em erro 500</td><td>Alto</td><td>Baixa</td><td>Tratamento global de erros no backend</td></tr>
+        </tbody>
+      </table>
+
+      <div class="qa-section-h">📊 Mapeamento de Cobertura</div>
+      <table class="qa-table">
+        <thead><tr><th>Critério de Aceite</th><th>Casos de Teste</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>E-mail no formato correto</td><td>CT-003, CT-006</td><td><span class="qa-badge badge-b">Coberto</span></td></tr>
+          <tr><td>Senha mínimo 8 caracteres</td><td>CT-004</td><td><span class="qa-badge badge-b">Coberto</span></td></tr>
+          <tr><td>Bloqueio após 3 tentativas erradas</td><td>CT-005, CT-008</td><td><span class="qa-badge badge-b">Coberto</span></td></tr>
+          <tr><td>Mensagem de erro clara</td><td>CT-003, CT-004, CT-005</td><td><span class="qa-badge badge-b">Coberto</span></td></tr>
+        </tbody>
+      </table>
+
+      <div class="qa-section-h">💡 Recomendações do QA</div>
+      <ul class="qa-list">
+        <li>Automatizar CT-001, CT-003 e CT-004 com Cypress para regressão contínua</li>
+        <li>Realizar teste de performance com múltiplos logins simultâneos</li>
+        <li>Validar comportamento em conexões lentas (timeout handling)</li>
+        <li>Verificar se o log de tentativas é registrado para auditoria de segurança</li>
+      </ul>
+
+    </div>
+  </div>
+</div>
