@@ -140,6 +140,7 @@ qa-us/
 📄 Exemplo de saída gerada pela aplicação:
 
 [Visualizar exemplo de resultado](./public/qa_us_resultado.html)
+Faça o download do arquivo HTML e visualize-o no navegador de sua preferência.
 
 ### Funcionalidades
 
