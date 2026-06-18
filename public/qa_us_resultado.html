@@ -1,35 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QA - US</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    body { margin: 0; background: #0a0f1e; font-family: 'Segoe UI', system-ui, sans-serif; padding: 24px; }
 
-<style>
-  .qa-wrap { font-family: 'Segoe UI', system-ui, sans-serif; background: #0a0f1e; border-radius: 12px; overflow: hidden; }
-  .qa-header { background: linear-gradient(135deg, #1e3a8a, #1d4ed8); padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
-  .qa-header-title { font-size: 1.15rem; font-weight: 700; color: #fff; }
-  .qa-header-sub { font-size: 0.78rem; color: rgba(255,255,255,0.75); margin-top: 2px; }
-  .qa-body { padding: 20px; }
-  .qa-form { background: #111827; border: 1px solid #2d3748; border-radius: 10px; padding: 20px; margin-bottom: 16px; }
-  .qa-form-label { font-size: 0.7rem; font-weight: 600; color: #8896aa; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 6px; }
-  .qa-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .qa-textarea { background: #1f2937; border: 1.5px solid #2d3748; border-radius: 6px; color: #e8e8f0; font-size: 0.78rem; padding: 10px; min-height: 90px; font-family: inherit; line-height: 1.5; }
-  .qa-btn { margin-top: 14px; background: linear-gradient(135deg, #1d4ed8, #f59e0b); color: white; border: none; border-radius: 7px; padding: 10px 22px; font-size: 0.85rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
-  .qa-result-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
-  .qa-result-title { font-size: 0.9rem; color: #f59e0b; font-weight: 600; }
-  .qa-btn-pdf { background: #f59e0b; color: #0a0f1e; border: none; border-radius: 6px; padding: 7px 16px; font-size: 0.78rem; font-weight: 700; cursor: pointer; }
-  .qa-content { background: #111827; border: 1px solid #2d3748; border-radius: 10px; padding: 22px; color: #e8e8f0; }
-  .qa-section-h { font-size: 0.98rem; font-weight: 700; color: white; background: #1d4ed8; border-left: 4px solid #f59e0b; padding: 7px 12px; border-radius: 0 5px 5px 0; margin: 16px 0 10px; }
-  .qa-section-h:first-child { margin-top: 0; }
-  .qa-sub { font-size: 0.82rem; font-weight: 700; color: #f59e0b; margin: 10px 0 6px; }
-  .qa-p { font-size: 0.79rem; color: #c8ccd8; line-height: 1.6; margin-bottom: 8px; }
-  .qa-table { width: 100%; border-collapse: collapse; font-size: 0.75rem; margin: 8px 0; }
-  .qa-table th { background: #1d4ed8; color: #fff; padding: 7px 10px; text-align: left; font-weight: 600; border: 1px solid #1d4ed8; }
-  .qa-table td { padding: 6px 10px; border: 1px solid #2d3748; color: #c8ccd8; vertical-align: top; line-height: 1.45; }
-  .qa-table tr:nth-child(even) td { background: rgba(255,255,255,0.03); }
-  .qa-badge { display: inline-block; border-radius: 4px; padding: 1px 7px; font-size: 0.68rem; font-weight: 700; }
-  .badge-p { background: rgba(229,62,62,0.15); color: #fc8181; border: 1px solid rgba(229,62,62,0.3); }
-  .badge-m { background: rgba(245,158,11,0.15); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
-  .badge-b { background: rgba(52,211,153,0.13); color: #6ee7b7; border: 1px solid rgba(52,211,153,0.3); }
-  .qa-list { padding-left: 18px; margin: 0 0 8px; }
-  .qa-list li { font-size: 0.79rem; color: #c8ccd8; line-height: 1.6; margin-bottom: 3px; }
-  .qa-hr { border: none; border-top: 1px solid #2d3748; margin: 14px 0; }
-</style>
+    .qa-wrap { background: #0a0f1e; border-radius: 12px; overflow: hidden; max-width: 900px; margin: 0 auto; }
+    .qa-header { background: linear-gradient(135deg, #1e3a8a, #1d4ed8); padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
+    .qa-header-title { font-size: 1.15rem; font-weight: 700; color: #fff; }
+    .qa-header-sub { font-size: 0.78rem; color: rgba(255,255,255,0.75); margin-top: 2px; }
+    .qa-body { padding: 20px; }
+    .qa-form { background: #111827; border: 1px solid #2d3748; border-radius: 10px; padding: 20px; margin-bottom: 16px; }
+    .qa-form-label { font-size: 0.7rem; font-weight: 600; color: #8896aa; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 6px; }
+    .qa-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .qa-textarea { background: #1f2937; border: 1.5px solid #2d3748; border-radius: 6px; color: #e8e8f0; font-size: 0.78rem; padding: 10px; min-height: 90px; font-family: inherit; line-height: 1.5; }
+    .qa-btn { margin-top: 14px; background: linear-gradient(135deg, #1d4ed8, #f59e0b); color: white; border: none; border-radius: 7px; padding: 10px 22px; font-size: 0.85rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+    .qa-result-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .qa-result-title { font-size: 0.9rem; color: #f59e0b; font-weight: 600; }
+    .qa-btn-pdf { background: #f59e0b; color: #0a0f1e; border: none; border-radius: 6px; padding: 7px 16px; font-size: 0.78rem; font-weight: 700; cursor: pointer; }
+    .qa-btn-pdf:disabled { opacity: 0.5; cursor: not-allowed; }
+    .qa-content { background: #111827; border: 1px solid #2d3748; border-radius: 10px; padding: 22px; color: #e8e8f0; }
+    .qa-section-h { font-size: 0.98rem; font-weight: 700; color: white; background: #1d4ed8; border-left: 4px solid #f59e0b; padding: 7px 12px; border-radius: 0 5px 5px 0; margin: 16px 0 10px; }
+    .qa-section-h:first-child { margin-top: 0; }
+    .qa-sub { font-size: 0.82rem; font-weight: 700; color: #f59e0b; margin: 10px 0 6px; }
+    .qa-p { font-size: 0.79rem; color: #c8ccd8; line-height: 1.6; margin-bottom: 8px; }
+    .qa-table { width: 100%; border-collapse: collapse; font-size: 0.75rem; margin: 8px 0; }
+    .qa-table th { background: #1d4ed8; color: #fff; padding: 7px 10px; text-align: left; font-weight: 600; border: 1px solid #1d4ed8; }
+    .qa-table td { padding: 6px 10px; border: 1px solid #2d3748; color: #c8ccd8; vertical-align: top; line-height: 1.45; }
+    .qa-table tr:nth-child(even) td { background: rgba(255,255,255,0.03); }
+    .qa-badge { display: inline-block; border-radius: 4px; padding: 1px 7px; font-size: 0.68rem; font-weight: 700; }
+    .badge-p { background: rgba(229,62,62,0.15); color: #fc8181; border: 1px solid rgba(229,62,62,0.3); }
+    .badge-m { background: rgba(245,158,11,0.15); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
+    .badge-b { background: rgba(52,211,153,0.13); color: #6ee7b7; border: 1px solid rgba(52,211,153,0.3); }
+    .qa-list { padding-left: 18px; margin: 0 0 8px; }
+    .qa-list li { font-size: 0.79rem; color: #c8ccd8; line-height: 1.6; margin-bottom: 3px; }
+    .qa-hr { border: none; border-top: 1px solid #2d3748; margin: 14px 0; }
+  </style>
+</head>
+<body>
 
 <div class="qa-wrap">
   <div class="qa-header">
@@ -58,10 +70,10 @@
 
     <div class="qa-result-bar">
       <div class="qa-result-title">📄 Análise Gerada</div>
-      <button class="qa-btn-pdf">🖨️ Salvar como PDF</button>
+      <button class="qa-btn-pdf" id="btnPdf" onclick="savePDF()">🖨️ Salvar como PDF</button>
     </div>
 
-    <div class="qa-content">
+    <div class="qa-content" id="qaContent">
 
       <div class="qa-section-h">📋 Entendimento da User Story</div>
       <div class="qa-p"><strong style="color:#93c5fd">Contexto de negócio:</strong> Funcionalidade de autenticação para usuários com cadastro prévio na plataforma. Fluxo crítico que impacta diretamente a experiência do usuário e a segurança da aplicação.</div>
@@ -131,3 +143,194 @@
     </div>
   </div>
 </div>
+
+<script>
+  async function savePDF() {
+    const btn = document.getElementById('btnPdf');
+    btn.textContent = '⏳ Gerando PDF...';
+    btn.disabled = true;
+
+    try {
+      const now = new Date();
+      const dia = String(now.getDate()).padStart(2, '0');
+      const mes = String(now.getMonth() + 1).padStart(2, '0');
+      const ano = now.getFullYear();
+      const dateStr = now.toLocaleDateString('pt-BR') + ' às ' + now.toLocaleTimeString('pt-BR');
+      const fileName = `QA-US_${dia}${mes}${ano}.pdf`;
+
+      const { jsPDF } = window.jspdf;
+
+      // A4 em pixels a 96dpi = 794 x 1123px
+      const PAGE_W_PX = 794;
+      const PAGE_H_PX = 1123;
+      const HEADER_H_PX = 36;
+      const FOOTER_H_PX = 32;
+      const CONTENT_H_PX = PAGE_H_PX - HEADER_H_PX - FOOTER_H_PX;
+
+      // Monta container oculto com estilos PDF (fundo branco)
+      const wrapper = document.createElement('div');
+      wrapper.style.cssText = `
+        position: fixed; left: -9999px; top: 0;
+        width: ${PAGE_W_PX}px;
+        background: white;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        font-size: 10pt;
+        color: #1a1a2e;
+        line-height: 1.7;
+      `;
+
+      // Conteúdo do body
+      const contentEl = document.createElement('div');
+      contentEl.style.cssText = `padding: 24px 32px; background: white;`;
+      contentEl.innerHTML = document.getElementById('qaContent').innerHTML;
+
+      // Aplica estilos PDF
+      contentEl.querySelectorAll('.qa-section-h').forEach(el => {
+        el.style.cssText = 'font-size:13pt;font-weight:800;color:white;background:#1d4ed8;border-left:6px solid #f59e0b;padding:10px 16px;margin:24px 0 12px;border-radius:0 6px 6px 0;display:block;';
+      });
+      contentEl.querySelectorAll('.qa-sub').forEach(el => {
+        el.style.cssText = 'font-size:11pt;font-weight:700;color:#1d4ed8;border-bottom:2px solid #dbeafe;padding-bottom:4px;margin:16px 0 8px;display:block;';
+      });
+      contentEl.querySelectorAll('.qa-p').forEach(el => {
+        el.style.cssText = 'font-size:10pt;color:#1a1a2e;line-height:1.7;margin-bottom:8px;';
+      });
+      contentEl.querySelectorAll('.qa-p strong').forEach(el => {
+        el.style.cssText = 'color:#374151;font-weight:700;';
+      });
+      contentEl.querySelectorAll('.qa-list').forEach(el => {
+        el.style.cssText = 'padding-left:20px;margin-bottom:10px;';
+      });
+      contentEl.querySelectorAll('.qa-list li').forEach(el => {
+        el.style.cssText = 'font-size:10pt;color:#1a1a2e;margin-bottom:4px;line-height:1.6;';
+      });
+      contentEl.querySelectorAll('.qa-list li strong').forEach(el => {
+        el.style.cssText = 'font-weight:700;';
+      });
+      contentEl.querySelectorAll('.qa-table').forEach(el => {
+        el.style.cssText = 'width:100%;border-collapse:collapse;margin:10px 0;font-size:9pt;table-layout:fixed;word-break:break-word;';
+      });
+      contentEl.querySelectorAll('.qa-table th').forEach(el => {
+        el.style.cssText = 'background:#1d4ed8;color:#fff;padding:8px 10px;font-weight:700;border:1px solid #1d4ed8;text-align:left;';
+      });
+      contentEl.querySelectorAll('.qa-table td').forEach(el => {
+        el.style.cssText = 'padding:7px 10px;border:1px solid #ddd;color:#1a1a2e;vertical-align:top;word-break:break-word;line-height:1.5;background:white;';
+      });
+      contentEl.querySelectorAll('.qa-table tr:nth-child(even) td').forEach(el => {
+        el.style.background = '#eff6ff';
+      });
+      contentEl.querySelectorAll('.qa-badge').forEach(el => {
+        el.style.cssText = 'display:inline-block;border-radius:4px;padding:1px 7px;font-size:8pt;font-weight:700;border:1px solid #ccc;color:#333;background:#f3f4f6;';
+      });
+      contentEl.querySelectorAll('.qa-hr').forEach(el => {
+        el.style.cssText = 'border:none;border-top:1px solid #e2e8f0;margin:14px 0;';
+      });
+
+      wrapper.appendChild(contentEl);
+      document.body.appendChild(wrapper);
+
+      await new Promise(r => setTimeout(r, 400));
+
+      // Captura o conteúdo inteiro
+      const fullCanvas = await html2canvas(contentEl, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: '#ffffff',
+        scrollY: 0,
+        width: PAGE_W_PX,
+        height: contentEl.scrollHeight
+      });
+
+      document.body.removeChild(wrapper);
+
+      // PDF em mm (A4 = 210 x 297mm)
+      const pdf = new jsPDF({ orientation: 'p', unit: 'mm', format: 'a4' });
+      const PAGE_W_MM = 210;
+      const PAGE_H_MM = 297;
+      const HEADER_H_MM = 12;
+      const FOOTER_H_MM = 10;
+      const CONTENT_H_MM = PAGE_H_MM - HEADER_H_MM - FOOTER_H_MM;
+
+      // Calcula proporção da imagem
+      const imgW_MM = PAGE_W_MM;
+      const imgH_MM = (fullCanvas.height / fullCanvas.width) * imgW_MM;
+      const imgData = fullCanvas.toDataURL('image/jpeg', 0.95);
+
+      const totalPages = Math.ceil(imgH_MM / CONTENT_H_MM);
+
+      for (let i = 0; i < totalPages; i++) {
+        if (i > 0) pdf.addPage();
+
+        // Header
+        pdf.setFillColor(29, 78, 216);
+        pdf.rect(0, 0, PAGE_W_MM, HEADER_H_MM, 'F');
+        pdf.setDrawColor(245, 158, 11);
+        pdf.setLineWidth(0.8);
+        pdf.line(0, HEADER_H_MM, PAGE_W_MM, HEADER_H_MM);
+        pdf.setTextColor(255, 255, 255);
+        pdf.setFontSize(9);
+        pdf.setFont('helvetica', 'bold');
+        pdf.text('QA US — Análise de User Story', 8, 8);
+        pdf.setFont('helvetica', 'normal');
+        pdf.setFontSize(7);
+        pdf.text(dateStr, PAGE_W_MM - 8, 8, { align: 'right' });
+
+        // Conteúdo — desloca a imagem para mostrar a fatia correta
+        const yOffset = i * CONTENT_H_MM;
+        pdf.addImage(imgData, 'JPEG', 0, HEADER_H_MM - yOffset, imgW_MM, imgH_MM);
+
+        // Máscara superior (cobre o que transbordou da página anterior)
+        pdf.setFillColor(255, 255, 255);
+        pdf.rect(0, 0, PAGE_W_MM, HEADER_H_MM, 'F');
+
+        // Footer
+        pdf.setFillColor(239, 246, 255);
+        pdf.rect(0, PAGE_H_MM - FOOTER_H_MM, PAGE_W_MM, FOOTER_H_MM, 'F');
+        pdf.setDrawColor(29, 78, 216);
+        pdf.setLineWidth(0.5);
+        pdf.line(0, PAGE_H_MM - FOOTER_H_MM, PAGE_W_MM, PAGE_H_MM - FOOTER_H_MM);
+        pdf.setTextColor(107, 114, 128);
+        pdf.setFontSize(7);
+        pdf.setFont('helvetica', 'normal');
+        pdf.text('QA US · Análise Gerada por IA', 8, PAGE_H_MM - 3.5);
+        pdf.setTextColor(29, 78, 216);
+        pdf.setFont('helvetica', 'bold');
+        pdf.text('Analista de Qualidade: Luiza Nicácio', PAGE_W_MM / 2, PAGE_H_MM - 3.5, { align: 'center' });
+        pdf.setTextColor(107, 114, 128);
+        pdf.setFont('helvetica', 'normal');
+        pdf.text(`${dia}/${mes}/${ano}`, PAGE_W_MM - 8, PAGE_H_MM - 3.5, { align: 'right' });
+
+        // Máscara inferior (cobre o que transbordaria para próxima página)
+        pdf.setFillColor(255, 255, 255);
+        pdf.rect(0, PAGE_H_MM - FOOTER_H_MM, PAGE_W_MM, FOOTER_H_MM, 'F');
+
+        // Redesenha footer por cima da máscara
+        pdf.setFillColor(239, 246, 255);
+        pdf.rect(0, PAGE_H_MM - FOOTER_H_MM, PAGE_W_MM, FOOTER_H_MM, 'F');
+        pdf.setDrawColor(29, 78, 216);
+        pdf.line(0, PAGE_H_MM - FOOTER_H_MM, PAGE_W_MM, PAGE_H_MM - FOOTER_H_MM);
+        pdf.setTextColor(107, 114, 128);
+        pdf.setFontSize(7);
+        pdf.setFont('helvetica', 'normal');
+        pdf.text('QA US · Análise Gerada por IA', 8, PAGE_H_MM - 3.5);
+        pdf.setTextColor(29, 78, 216);
+        pdf.setFont('helvetica', 'bold');
+        pdf.text('Analista de Qualidade: Luiza Nicácio', PAGE_W_MM / 2, PAGE_H_MM - 3.5, { align: 'center' });
+        pdf.setTextColor(107, 114, 128);
+        pdf.setFont('helvetica', 'normal');
+        pdf.text(`${dia}/${mes}/${ano}`, PAGE_W_MM - 8, PAGE_H_MM - 3.5, { align: 'right' });
+      }
+
+      pdf.save(fileName);
+
+    } catch (err) {
+      console.error(err);
+      alert('Erro ao gerar PDF: ' + err.message);
+    } finally {
+      btn.textContent = '🖨️ Salvar como PDF';
+      btn.disabled = false;
+    }
+  }
+</script>
+
+</body>
+</html>
